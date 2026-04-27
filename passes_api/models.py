@@ -45,7 +45,7 @@ class Pereval(models.Model):
     beauty_title = models.CharField(max_length=250, blank=True, null=True, verbose_name="красивое название")
     title = models.CharField(max_length=250, verbose_name="основное название")
     other_titles = models.CharField(max_length=250, blank=True, null=True, verbose_name="другие названия")
-    connect = models.CharField(max_length=250, verbose_name="информация о соединениях")
+    connect = models.CharField(max_length=250, null=True, blank=True, verbose_name="информация о соединениях")
     add_time = models.DateTimeField(auto_now_add=False, verbose_name="время добавления")
     user = models.ForeignKey(Users, on_delete=models.CASCADE)
     coords = models.ForeignKey(Coords, on_delete=models.CASCADE)
