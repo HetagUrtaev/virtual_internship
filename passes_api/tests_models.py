@@ -75,8 +75,6 @@ class LevelTest(TestCase):
             long_level.full_clean()
 
 
-
-
 class PerevalTest(TestCase):
     def setUp(self):
         self.user = Users.objects.create(
