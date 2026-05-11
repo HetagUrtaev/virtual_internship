@@ -37,7 +37,7 @@ class PerevalApiView(viewsets.ModelViewSet):
                     'message': None,
                     'id': pereval.id
                 },
-                status=status.HTTP_200_OK
+                status=status.HTTP_201_CREATED
             )
         except Exception as e:
             return Response(
