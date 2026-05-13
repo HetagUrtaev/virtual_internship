@@ -87,7 +87,14 @@ class PerevalTestCase(APITestCase):
         response = self.client.get(url)
         serializer_data = PerevalSerializer([self.pereval_1, self.pereval_2], many=True).data
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        # self.assertEqual(response.data, serializer_data)
+        self.assertEqual(self.pereval_1.__str__(), self.pereval_1.title)
+
+        self.assertEqual(self.pereval_1.user.__str__(), f"{self.pereval_1.user.fam} {self.pereval_1.user.name}")
+
+        self.assertEqual(self.pereval_1.coords.__str__(), f"({self.pereval_1.coords.latitude}, {self.pereval_1.coords.longitude}) - {self.pereval_1.coords.height}м")
+
+        self.assertEqual(self.image_1_1.__str__(), self.image_1_1.title)
+
         self.assertEqual(2, len(serializer_data))
 
     def test_get_detail(self):
